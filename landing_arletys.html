@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Reparación de equipos — Arletys Fabré | Santiago de Cuba</title>
+<meta name="description" content="¿Tu impresora o computadora necesita reparación? Solicita diagnóstico gratuito. TCP autorizado en Santiago de Cuba."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:#0a0a0a;color:#f5f3ee;
+  font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.6;
+  min-height:100vh;
+}
+
+/* ── HERO SPLIT LAYOUT ── */
+.page{
+  min-height:100vh;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+}
+
+/* ── LEFT — branding ── */
+.left{
+  background:#111;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:4rem 3.5rem;
+  position:relative;overflow:hidden;
+}
+.left::before{
+  content:'';position:absolute;inset:0;
+  background:repeating-linear-gradient(90deg,transparent,transparent 79px,rgba(255,255,255,0.015) 80px),
+             repeating-linear-gradient(0deg,transparent,transparent 79px,rgba(255,255,255,0.015) 80px);
+}
+.left-inner{position:relative;z-index:1;}
+
+.logo-wrap{margin-bottom:2.5rem;}
+.logo-wrap svg{width:90px;height:auto;}
+
+.badge{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  font-size:0.68rem;letter-spacing:0.3em;text-transform:uppercase;
+  color:#888;border:1px solid rgba(255,255,255,0.1);
+  padding:0.35rem 0.8rem;margin-bottom:1.5rem;
+}
+.badge::before{content:'';display:block;width:6px;height:6px;border-radius:50%;background:#4ade80;}
+
+h1{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(2.8rem,4.5vw,4.2rem);
+  line-height:0.95;letter-spacing:0.03em;
+  color:#f5f3ee;margin-bottom:1.5rem;
+}
+h1 em{font-style:normal;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,0.35);}
+
+.desc{
+  font-size:0.95rem;color:rgba(245,243,238,0.55);
+  line-height:1.8;max-width:400px;margin-bottom:2.5rem;
+}
+.desc strong{color:#f5f3ee;font-weight:500;}
+
+/* Beneficios */
+.benefits{display:grid;gap:0.75rem;margin-bottom:2.5rem;}
+.benefit{
+  display:flex;align-items:flex-start;gap:0.8rem;
+  font-size:0.88rem;color:rgba(245,243,238,0.7);
+}
+.benefit-check{
+  width:18px;height:18px;flex-shrink:0;margin-top:2px;
+  border:1.5px solid rgba(255,255,255,0.3);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+}
+.benefit-check svg{width:10px;height:10px;stroke:#4ade80;stroke-width:2.5;}
+
+/* Testimonial */
+.testimonial{
+  padding:1.2rem 1.5rem;
+  border-left:2px solid rgba(255,255,255,0.15);
+  font-size:0.82rem;color:rgba(245,243,238,0.45);
+  line-height:1.7;font-style:italic;
+  margin-top:2rem;
+}
+.testimonial strong{color:rgba(245,243,238,0.65);font-style:normal;}
+
+/* ── RIGHT — formulario ── */
+.right{
+  background:#0a0a0a;
+  display:flex;align-items:center;justify-content:center;
+  padding:3rem 3rem 3rem 2.5rem;
+}
+.form-card{width:100%;max-width:440px;}
+
+.form-title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.8rem;letter-spacing:0.05em;
+  margin-bottom:0.4rem;
+}
+.form-subtitle{
+  font-size:0.82rem;color:rgba(245,243,238,0.45);
+  margin-bottom:2rem;line-height:1.6;
+}
+
+.form-group{margin-bottom:1.2rem;}
+label{
+  display:block;
+  font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;
+  color:rgba(245,243,238,0.5);margin-bottom:0.5rem;
+}
+label span{color:#e05252;margin-left:2px;}
+
+input,select,textarea{
+  width:100%;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.1);
+  color:#f5f3ee;
+  padding:0.85rem 1rem;
+  font-family:'DM Sans',sans-serif;font-size:0.92rem;
+  outline:none;
+  transition:border-color 0.2s,background 0.2s;
+  appearance:none;
+}
+input::placeholder,textarea::placeholder{color:rgba(245,243,238,0.25);}
+input:focus,select:focus,textarea:focus{
+  border-color:rgba(255,255,255,0.3);
+  background:rgba(255,255,255,0.07);
+}
+select{cursor:pointer;}
+select option{background:#1a1a1a;color:#f5f3ee;}
+textarea{resize:vertical;min-height:80px;}
+
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+
+.submit-btn{
+  width:100%;margin-top:1.5rem;
+  background:#f5f3ee;color:#0a0a0a;
+  padding:1rem;
+  font-family:'DM Sans',sans-serif;font-size:0.85rem;
+  font-weight:500;letter-spacing:0.15em;text-transform:uppercase;
+  border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;gap:0.8rem;
+  transition:background 0.2s,transform 0.2s;
+}
+.submit-btn:hover{background:#e8e0d0;transform:translateY(-1px);}
+.submit-btn:disabled{opacity:0.5;cursor:not-allowed;transform:none;}
+.submit-btn svg{width:16px;height:16px;transition:transform 0.2s;}
+.submit-btn:hover svg{transform:translateX(4px);}
+
+.form-note{
+  margin-top:1rem;
+  font-size:0.72rem;color:rgba(245,243,238,0.3);
+  text-align:center;line-height:1.7;
+}
+
+/* ── SUCCESS STATE ── */
+.success-msg{
+  display:none;
+  text-align:center;padding:2rem;
+  border:1px solid rgba(74,222,128,0.3);
+  background:rgba(74,222,128,0.04);
+}
+.success-msg svg{width:44px;height:44px;stroke:#4ade80;stroke-width:1.5;margin:0 auto 1rem;}
+.success-msg h3{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.6rem;letter-spacing:0.05em;margin-bottom:0.5rem;
+}
+.success-msg p{font-size:0.85rem;color:rgba(245,243,238,0.55);line-height:1.7;}
+
+/* ── CONTADOR DE LEADS (oculto, solo visible para ti) ── */
+.lead-counter{
+  display:none;
+  position:fixed;bottom:1.5rem;right:1.5rem;
+  background:#1a1a1a;border:1px solid rgba(255,255,255,0.1);
+  padding:0.8rem 1.2rem;
+  font-size:0.75rem;color:rgba(245,243,238,0.5);
+  cursor:pointer;z-index:50;
+}
+.lead-counter strong{color:#f5f3ee;display:block;font-size:1.1rem;}
+
+/* ── FOOTER ── */
+.page-footer{
+  background:#111;
+  padding:1.2rem 3.5rem;
+  display:flex;justify-content:space-between;align-items:center;
+  border-top:1px solid rgba(255,255,255,0.06);
+  font-size:0.7rem;color:rgba(245,243,238,0.3);
+  flex-wrap:wrap;gap:0.5rem;
+}
+
+/* ── RESPONSIVE ── */
+@media(max-width:860px){
+  .page{grid-template-columns:1fr;}
+  .left{padding:3rem 1.5rem 2rem;}
+  .right{padding:2rem 1.5rem 3rem;}
+  .logo-wrap svg{width:70px;}
+  h1{font-size:2.6rem;}
+  .form-row{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- PÁGINA PRINCIPAL -->
+<div class="page">
+
+  <!-- ── IZQUIERDA — BRANDING ── -->
+  <div class="left">
+    <div class="left-inner">
+
+      <!-- Logo SVG inline -->
+      <div class="logo-wrap">
+        <svg viewBox="0 0 680 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="371" y1="44" x2="376" y2="23" stroke="#f5f3ee" stroke-width="52" stroke-linecap="square"/>
+          <line x1="225" y1="83" x2="212" y2="67" stroke="#f5f3ee" stroke-width="52" stroke-linecap="square"/>
+          <line x1="162" y1="220" x2="141" y2="220" stroke="#f5f3ee" stroke-width="52" stroke-linecap="square"/>
+          <line x1="225" y1="357" x2="212" y2="373" stroke="#f5f3ee" stroke-width="52" stroke-linecap="square"/>
+          <line x1="371" y1="395" x2="376" y2="416" stroke="#f5f3ee" stroke-width="52" stroke-linecap="square"/>
+          <path d="M415,90 A150,150 0 1,0 415,350" fill="none" stroke="#f5f3ee" stroke-width="28" stroke-linecap="square"/>
+          <text x="390" y="220" font-family="Arial Narrow,Arial,sans-serif" font-weight="900" font-size="170" fill="#f5f3ee" text-anchor="middle" dominant-baseline="central" textLength="230" lengthAdjust="spacingAndGlyphs">AF</text>
+        </svg>
+      </div>
+
+      <div class="badge">TCP autorizado · Santiago de Cuba</div>
+
+      <h1>¿Tu equipo<br/>necesita<br/><em>reparación?</em></h1>
+
+      <p class="desc">
+        Diagnóstico <strong>gratuito y sin compromiso</strong>. Impresoras, computadoras, laptops y equipos electrónicos. Garantía por escrito en cada trabajo.
+      </p>
+
+      <div class="benefits">
+        <div class="benefit">
+          <div class="benefit-check">
+            <svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          Diagnóstico previo sin costo
+        </div>
+        <div class="benefit">
+          <div class="benefit-check">
+            <svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          Presupuesto aprobado antes de comenzar
+        </div>
+        <div class="benefit">
+          <div class="benefit-check">
+            <svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          Garantía escrita en cada reparación
+        </div>
+        <div class="benefit">
+          <div class="benefit-check">
+            <svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          Factura oficial · TCP autorizado MINCIN
+        </div>
+        <div class="benefit">
+          <div class="benefit-check">
+            <svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          Atención a empresas e instituciones estatales
+        </div>
+      </div>
+
+      <div class="testimonial">
+        "Reparó nuestra impresora HP en 3 días, con garantía y factura. El diagnóstico fue sin costo y el precio justo."<br/>
+        <strong>— Cliente empresarial, Santiago de Cuba</strong>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── DERECHA — FORMULARIO ── -->
+  <div class="right">
+    <div class="form-card">
+
+      <div class="form-title">Solicita tu diagnóstico</div>
+      <div class="form-subtitle">Completa el formulario y te contactamos en menos de 24 horas. Sin costo, sin compromiso.</div>
+
+      <!-- FORMULARIO — Web3Forms -->
+      <!-- INSTRUCCIÓN: Registrate en web3forms.com, obtén tu access_key y pégala abajo -->
+      <form id="leadForm">
+        <input type="hidden" name="access_key" value="bba795b9-7737-4526-8689-07de66bca5b0"/>
+        <input type="hidden" name="subject" value="Nuevo lead — Arletys Reparaciones Profesionales"/>
+        <input type="hidden" name="from_name" value="Landing Page Arletys"/>
+        <input type="hidden" name="redirect" value="false"/>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nombre <span>*</span></label>
+            <input type="text" name="nombre" placeholder="Tu nombre" required/>
+          </div>
+          <div class="form-group">
+            <label>Apellidos <span>*</span></label>
+            <input type="text" name="apellidos" placeholder="Tus apellidos" required/>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Teléfono móvil <span>*</span></label>
+          <input type="tel" name="telefono" placeholder="+53 5XXX XXXX" required/>
+        </div>
+
+        <div class="form-group">
+          <label>Correo electrónico</label>
+          <input type="email" name="correo" placeholder="tucorreo@gmail.com"/>
+        </div>
+
+        <div class="form-group">
+          <label>¿Qué equipo necesita reparación? <span>*</span></label>
+          <select name="equipo" required>
+            <option value="" disabled selected>Selecciona el equipo</option>
+            <option value="Impresora láser">Impresora láser</option>
+            <option value="Impresora de tinta">Impresora de tinta</option>
+            <option value="Impresora matricial">Impresora matricial</option>
+            <option value="Tóner / cartucho">Tóner / cartucho (relleno o reparación)</option>
+            <option value="Computadora PC">Computadora PC (escritorio)</option>
+            <option value="Laptop">Laptop</option>
+            <option value="Monitor">Monitor</option>
+            <option value="UPS / backup">UPS / backup</option>
+            <option value="Conmutador de red">Conmutador de red</option>
+            <option value="Otro equipo">Otro equipo electrónico</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>¿Cuál es el problema? (opcional)</label>
+          <textarea name="problema" placeholder="Ej: No imprime, hace ruido, no enciende..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>¿Cómo nos conociste?</label>
+          <select name="fuente">
+            <option value="" disabled selected>Selecciona una opción</option>
+            <option value="Facebook">Facebook</option>
+            <option value="Recomendación">Recomendación de un amigo</option>
+            <option value="Google">Google / búsqueda en internet</option>
+            <option value="WhatsApp">WhatsApp</option>
+            <option value="Otro">Otro</option>
+          </select>
+        </div>
+
+        <!-- Honeypot anti-spam -->
+        <input type="text" name="botcheck" style="display:none"/>
+
+        <button type="submit" class="submit-btn" id="submitBtn">
+          <span id="btnText">Solicitar diagnóstico gratuito</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="btnArrow">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </button>
+
+        <p class="form-note">
+          Tus datos están seguros. Solo los usamos para contactarte y nunca los compartimos con terceros.
+        </p>
+      </form>
+
+      <!-- MENSAJE ÉXITO -->
+      <div class="success-msg" id="successMsg">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M7 12l4 4 6-6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <h3>¡Solicitud recibida!</h3>
+        <p>Gracias. Te contactaremos en menos de 24 horas al número que dejaste. Revisa también tu correo.</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- CONTADOR DE LEADS (solo visible para administrador — doble clic en esquina) -->
+<div class="lead-counter" id="leadCounter" title="Doble clic para exportar CSV">
+  <strong id="leadCount">0</strong>
+  leads capturados
+</div>
+
+<!-- PIE DE PÁGINA -->
+<footer class="page-footer">
+  <span>© 2026 Arletys Fabré Hechavarria · TCP autorizado · NIT: 91042547316 · Autorizo No. 34006137</span>
+  <span>Calle Fuerte No. 51, Mariana de la Torre, Santiago de Cuba · +53 5557589</span>
+</footer>
+
+<script>
+const ADMIN_KEY = 'arletys2026';
+const STORAGE_KEY = 'leads_arletys';
+
+function getLeads() {
+  try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); } catch { return []; }
+}
+function saveLeads(leads) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(leads));
+}
+function updateCounter() {
+  const n = getLeads().length;
+  document.getElementById('leadCount').textContent = n;
+}
+
+function exportCSV() {
+  const leads = getLeads();
+  if (!leads.length) { alert('No hay leads aún.'); return; }
+  const headers = ['Fecha','Nombre','Apellidos','Teléfono','Correo','Equipo','Problema','Fuente'];
+  const rows = leads.map(l => [
+    l.fecha, l.nombre, l.apellidos, l.telefono,
+    l.correo || '', l.equipo, l.problema || '', l.fuente || ''
+  ].map(v => `"${String(v).replace(/"/g,'""')}"`).join(','));
+  const csv = [headers.join(','), ...rows].join('\n');
+  const blob = new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `leads_arletys_${new Date().toISOString().slice(0,10)}.csv`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+// Mostrar contador con clic secreto (triple clic en pie de página)
+let clickCount = 0;
+document.querySelector('.page-footer').addEventListener('click', () => {
+  clickCount++;
+  if (clickCount >= 3) {
+    const key = prompt('Clave de administrador:');
+    if (key === ADMIN_KEY) {
+      document.getElementById('leadCounter').style.display = 'block';
+      updateCounter();
+    }
+    clickCount = 0;
+  }
+  setTimeout(() => { clickCount = 0; }, 2000);
+});
+
+// Doble clic en contador = exportar CSV
+document.getElementById('leadCounter').addEventListener('dblclick', exportCSV);
+
+// Envío del formulario
+document.getElementById('leadForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn = document.getElementById('submitBtn');
+  const btnText = document.getElementById('btnText');
+  const btnArrow = document.getElementById('btnArrow');
+
+  btn.disabled = true;
+  btnText.textContent = 'Enviando...';
+  btnArrow.style.display = 'none';
+
+  const formData = new FormData(this);
+  const data = Object.fromEntries(formData.entries());
+
+  // 1. Guardar localmente
+  const lead = {
+    fecha: new Date().toLocaleString('es-CU', { timeZone: 'America/Havana' }),
+    nombre: data.nombre || '',
+    apellidos: data.apellidos || '',
+    telefono: data.telefono || '',
+    correo: data.correo || '',
+    equipo: data.equipo || '',
+    problema: data.problema || '',
+    fuente: data.fuente || ''
+  };
+  const leads = getLeads();
+  leads.push(lead);
+  saveLeads(leads);
+  updateCounter();
+
+  // 2. Enviar a Web3Forms (llega a tu correo)
+  try {
+    const response = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify({
+        access_key: data.access_key,
+        subject: data.subject,
+        from_name: data.from_name,
+        nombre: lead.nombre,
+        apellidos: lead.apellidos,
+        telefono: lead.telefono,
+        correo: lead.correo || 'No indicado',
+        equipo: lead.equipo,
+        problema: lead.problema || 'No indicado',
+        fuente: lead.fuente || 'No indicada',
+        fecha: lead.fecha,
+        botcheck: data.botcheck
+      })
+    });
+    await response.json();
+  } catch (err) {
+    console.log('Web3Forms offline, lead guardado localmente.');
+  }
+
+  // 3. Mostrar éxito
+  document.getElementById('leadForm').style.display = 'none';
+  document.getElementById('successMsg').style.display = 'block';
+});
+</script>
+</body>
+</html>
