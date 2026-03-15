@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Arletys Fabré — Reparaciones Profesionales | Santiago de Cuba</title>
+<meta name="description" content="Servicio profesional de reparación y mantenimiento de equipos electrónicos, informáticos y recarga de tóner. Santiago de Cuba."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --black: #0a0a0a;
+  --white: #f5f3ee;
+  --grey: #1a1a1a;
+  --grey2: #2a2a2a;
+  --grey3: #888;
+  --accent: #e8e0d0;
+  --line: rgba(255,255,255,0.08);
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--black); }
+::-webkit-scrollbar-thumb { background: var(--grey3); }
+
+/* ── NAVIGATION ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.2rem 4rem;
+  background: rgba(10,10,10,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 1rem;
+}
+.nav-logo svg {
+  width: 38px; height: 33px; flex-shrink: 0;
+}
+.nav-brand {
+  display: flex; flex-direction: column; line-height: 1.1;
+}
+.nav-brand span:first-child {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  letter-spacing: 0.12em;
+  color: var(--white);
+}
+.nav-brand span:last-child {
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  color: var(--grey3);
+  text-transform: uppercase;
+}
+.nav-links {
+  display: flex; gap: 2.5rem; list-style: none;
+}
+.nav-links a {
+  color: var(--grey3); text-decoration: none;
+  font-size: 0.8rem; letter-spacing: 0.2em; text-transform: uppercase;
+  transition: color 0.3s;
+}
+.nav-links a:hover { color: var(--white); }
+
+/* ── HERO ── */
+#hero {
+  min-height: 100vh;
+  display: grid; place-items: center;
+  padding: 8rem 4rem 4rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 20% 50%, rgba(232,224,208,0.04) 0%, transparent 70%),
+    repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(255,255,255,0.02) 80px),
+    repeating-linear-gradient(0deg, transparent, transparent 79px, rgba(255,255,255,0.02) 80px);
+}
+.hero-content {
+  position: relative; z-index: 1;
+  max-width: 1100px; width: 100%;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center;
+}
+.hero-text { }
+.hero-eyebrow {
+  font-size: 0.72rem; letter-spacing: 0.35em; text-transform: uppercase;
+  color: var(--grey3); margin-bottom: 1.5rem;
+  display: flex; align-items: center; gap: 1rem;
+}
+.hero-eyebrow::before {
+  content: ''; display: block; width: 40px; height: 1px; background: var(--grey3);
+}
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 6vw, 6rem);
+  line-height: 0.95;
+  letter-spacing: 0.03em;
+  color: var(--white);
+  margin-bottom: 2rem;
+}
+.hero-title em {
+  font-style: normal;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255,255,255,0.4);
+}
+.hero-desc {
+  font-size: 1rem; color: rgba(245,243,238,0.6);
+  max-width: 420px; line-height: 1.8;
+  margin-bottom: 2.5rem;
+}
+.hero-cta {
+  display: inline-flex; align-items: center; gap: 0.8rem;
+  background: var(--white); color: var(--black);
+  padding: 0.9rem 2rem;
+  font-family: var(--font-body); font-size: 0.82rem;
+  font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+.hero-cta:hover { background: var(--accent); transform: translateX(4px); }
+.hero-cta svg { width: 16px; height: 16px; transition: transform 0.3s; }
+.hero-cta:hover svg { transform: translateX(4px); }
+
+/* Logo grande en hero */
+.hero-logo-wrap {
+  display: flex; justify-content: center; align-items: center;
+  opacity: 0.12;
+}
+.hero-logo-wrap svg {
+  width: min(380px, 90%); height: auto;
+}
+
+/* Stats row */
+.hero-stats {
+  display: flex; gap: 3rem; margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+}
+.stat { }
+.stat-num {
+  font-family: var(--font-display);
+  font-size: 2.2rem; letter-spacing: 0.05em;
+  color: var(--white);
+}
+.stat-label {
+  font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--grey3);
+}
+
+/* ── SECTIONS ── */
+section { padding: 7rem 4rem; }
+.section-inner { max-width: 1100px; margin: 0 auto; }
+.section-label {
+  font-size: 0.68rem; letter-spacing: 0.4em; text-transform: uppercase;
+  color: var(--grey3); margin-bottom: 1rem;
+  display: flex; align-items: center; gap: 1rem;
+}
+.section-label::before {
+  content: ''; display: block; width: 24px; height: 1px; background: var(--grey3);
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  line-height: 1; letter-spacing: 0.03em;
+  margin-bottom: 1rem;
+}
+
+/* ── SOBRE NOSOTROS ── */
+#sobre { background: var(--grey); }
+.sobre-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start;
+  margin-top: 3rem;
+}
+.sobre-text p {
+  color: rgba(245,243,238,0.65);
+  margin-bottom: 1.2rem; line-height: 1.9;
+}
+.sobre-text strong { color: var(--white); font-weight: 500; }
+.sobre-features {
+  display: grid; gap: 1.5rem;
+}
+.feature-item {
+  padding: 1.5rem;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.02);
+  transition: border-color 0.3s, background 0.3s;
+}
+.feature-item:hover {
+  border-color: rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.04);
+}
+.feature-icon {
+  font-size: 1.4rem; margin-bottom: 0.6rem;
+}
+.feature-name {
+  font-weight: 500; font-size: 0.95rem; margin-bottom: 0.3rem;
+}
+.feature-desc {
+  font-size: 0.82rem; color: var(--grey3); line-height: 1.6;
+}
+
+/* ── SERVICIOS ── */
+#servicios { background: var(--black); }
+.servicios-intro {
+  max-width: 600px; color: rgba(245,243,238,0.6);
+  margin-bottom: 4rem; line-height: 1.8;
+}
+.servicios-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+  background: var(--line);
+  margin-top: 3rem;
+}
+.servicio-card {
+  background: var(--black);
+  padding: 2.5rem 2rem;
+  transition: background 0.3s;
+  cursor: default;
+}
+.servicio-card:hover { background: var(--grey2); }
+.servicio-num {
+  font-family: var(--font-display);
+  font-size: 3rem; color: rgba(255,255,255,0.06);
+  line-height: 1; margin-bottom: 1.2rem;
+}
+.servicio-icon {
+  font-size: 1.8rem; margin-bottom: 1rem;
+}
+.servicio-name {
+  font-family: var(--font-display);
+  font-size: 1.4rem; letter-spacing: 0.05em;
+  margin-bottom: 0.8rem;
+}
+.servicio-desc {
+  font-size: 0.82rem; color: var(--grey3); line-height: 1.7;
+}
+.servicio-ejemplos {
+  margin-top: 1.2rem;
+  display: flex; flex-wrap: wrap; gap: 0.4rem;
+}
+.tag {
+  font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 0.25rem 0.6rem;
+  border: 1px solid rgba(255,255,255,0.1);
+  color: var(--grey3);
+}
+
+/* ── PRECIOS DESTACADOS ── */
+#precios { background: var(--grey); }
+.precios-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+  background: var(--line); margin-top: 3rem;
+}
+.precio-item {
+  background: var(--grey);
+  padding: 2rem 1.5rem;
+  transition: background 0.3s;
+}
+.precio-item:hover { background: var(--grey2); }
+.precio-categoria {
+  font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--grey3); margin-bottom: 0.8rem;
+}
+.precio-servicio {
+  font-size: 0.88rem; font-weight: 400;
+  color: rgba(245,243,238,0.8);
+  margin-bottom: 1rem; line-height: 1.5;
+  min-height: 2.6rem;
+}
+.precio-valor {
+  font-family: var(--font-display);
+  font-size: 1.8rem; letter-spacing: 0.05em;
+  color: var(--white);
+}
+.precio-moneda {
+  font-family: var(--font-body);
+  font-size: 0.72rem; letter-spacing: 0.2em;
+  color: var(--grey3); text-transform: uppercase;
+  display: block; margin-top: 0.2rem;
+}
+.precios-nota {
+  margin-top: 2rem; padding: 1.2rem 1.5rem;
+  border-left: 2px solid rgba(255,255,255,0.15);
+  font-size: 0.8rem; color: var(--grey3); line-height: 1.7;
+}
+
+/* ── CONTACTO ── */
+#contacto { background: var(--black); }
+.contacto-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 6rem;
+  margin-top: 3rem; align-items: start;
+}
+.contacto-info { }
+.contacto-intro {
+  color: rgba(245,243,238,0.6); line-height: 1.8;
+  margin-bottom: 3rem;
+}
+.contacto-items { display: grid; gap: 1.5rem; }
+.contacto-item {
+  display: flex; gap: 1.2rem; align-items: flex-start;
+  padding: 1.5rem;
+  border: 1px solid var(--line);
+  transition: border-color 0.3s;
+}
+.contacto-item:hover { border-color: rgba(255,255,255,0.15); }
+.contacto-item-icon {
+  font-size: 1.2rem; flex-shrink: 0; margin-top: 0.1rem;
+}
+.contacto-item-text { }
+.contacto-item-label {
+  font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--grey3); margin-bottom: 0.3rem;
+}
+.contacto-item-val {
+  font-size: 0.95rem; color: var(--white);
+}
+.contacto-item-sub {
+  font-size: 0.78rem; color: var(--grey3); margin-top: 0.2rem;
+}
+.horario-grid {
+  display: grid; gap: 1px; background: var(--line);
+}
+.horario-item {
+  background: var(--black);
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 1.5rem;
+}
+.horario-item.active { background: var(--grey2); }
+.horario-dia { font-size: 0.82rem; color: rgba(245,243,238,0.6); }
+.horario-hrs { font-family: var(--font-display); font-size: 1rem; letter-spacing: 0.05em; }
+.horario-head {
+  font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--grey3); margin-bottom: 1rem;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--grey);
+  padding: 3rem 4rem;
+  border-top: 1px solid var(--line);
+}
+.footer-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 1.5rem;
+}
+.footer-brand {
+  display: flex; align-items: center; gap: 1rem;
+}
+.footer-brand svg { width: 28px; height: 24px; opacity: 0.6; }
+.footer-brand-text {
+  font-family: var(--font-display);
+  font-size: 1rem; letter-spacing: 0.1em; color: rgba(245,243,238,0.5);
+}
+.footer-legal {
+  font-size: 0.72rem; color: var(--grey3); text-align: right; line-height: 1.8;
+}
+
+/* ── REVEAL ANIMATION ── */
+.reveal {
+  opacity: 0; transform: translateY(28px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.visible {
+  opacity: 1; transform: translateY(0);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { display: none; }
+  section { padding: 5rem 1.5rem; }
+  #hero { padding: 7rem 1.5rem 3rem; }
+  .hero-content { grid-template-columns: 1fr; gap: 3rem; }
+  .hero-logo-wrap { display: none; }
+  .sobre-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .servicios-grid { grid-template-columns: 1fr; }
+  .precios-grid { grid-template-columns: repeat(2, 1fr); }
+  .contacto-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .footer-inner { flex-direction: column; text-align: center; }
+  .footer-legal { text-align: center; }
+}
+@media (max-width: 500px) {
+  .precios-grid { grid-template-columns: 1fr; }
+  .hero-stats { flex-wrap: wrap; gap: 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- SVG Logo definition (reutilizable) -->
+<svg style="display:none">
+  <symbol id="logo-af" viewBox="0 0 680 600">
+    <line x1="371" y1="44" x2="376" y2="23" stroke="currentColor" stroke-width="52" stroke-linecap="square"/>
+    <line x1="225" y1="83" x2="212" y2="67" stroke="currentColor" stroke-width="52" stroke-linecap="square"/>
+    <line x1="162" y1="220" x2="141" y2="220" stroke="currentColor" stroke-width="52" stroke-linecap="square"/>
+    <line x1="225" y1="357" x2="212" y2="373" stroke="currentColor" stroke-width="52" stroke-linecap="square"/>
+    <line x1="371" y1="395" x2="376" y2="416" stroke="currentColor" stroke-width="52" stroke-linecap="square"/>
+    <path d="M415,90 A150,150 0 1,0 415,350" fill="none" stroke="currentColor" stroke-width="28" stroke-linecap="square"/>
+    <text x="390" y="220" font-family="Arial Narrow,Arial,sans-serif" font-weight="900" font-size="170" fill="currentColor" text-anchor="middle" dominant-baseline="central" textLength="230" lengthAdjust="spacingAndGlyphs">AF</text>
+  </symbol>
+</svg>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="nav-logo">
+    <svg viewBox="0 0 680 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <use href="#logo-af" color="#f5f3ee"/>
+    </svg>
+    <div class="nav-brand">
+      <span>Arletys Fabré</span>
+      <span>Reparaciones Profesionales</span>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#sobre">Nosotros</a></li>
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#precios">Precios</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-text reveal">
+      <div class="hero-eyebrow">Santiago de Cuba · TCP autorizado</div>
+      <h1 class="hero-title">
+        Reparaciones<br/>
+        <em>Electrónicas</em><br/>
+        Profesionales
+      </h1>
+      <p class="hero-desc">
+        Servicio técnico especializado en impresoras, computadoras, laptops y equipos electrónicos. Relleno de tóner y mantenimiento preventivo con garantía.
+      </p>
+      <a href="#contacto" class="hero-cta">
+        Solicitar servicio
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-num">198</div>
+          <div class="stat-label">Servicios disponibles</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">3+</div>
+          <div class="stat-label">Años de experiencia</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">8H</div>
+          <div class="stat-label">Atención diaria</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-logo-wrap reveal">
+      <svg viewBox="0 0 680 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <use href="#logo-af" color="#f5f3ee"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ── SOBRE NOSOTROS ── -->
+<section id="sobre">
+  <div class="section-inner">
+    <div class="section-label">Sobre nosotros</div>
+    <h2 class="section-title reveal">Técnica, precisión<br/>y garantía</h2>
+    <div class="sobre-grid">
+      <div class="sobre-text reveal">
+        <p>
+          Soy <strong>Arletys Fabré Hechavarria</strong>, técnica especializada en reparación de equipos electrónicos e informáticos en Santiago de Cuba. Trabajo como <strong>Trabajadora por Cuenta Propia autorizada</strong> por el Ministerio del Comercio Interior desde diciembre de 2022.
+        </p>
+        <p>
+          Me especializo en reparación, mantenimiento y recarga de tóner de impresoras láser, de tinta y matriciales, así como en computadoras de escritorio, laptops, monitores y periféricos.
+        </p>
+        <p>
+          Cada servicio incluye <strong>diagnóstico previo, documentación técnica y garantía</strong> sobre el trabajo realizado. Opero con total transparencia: presupuesto aprobado antes de comenzar y acta de conformidad al finalizar.
+        </p>
+      </div>
+      <div class="sobre-features reveal">
+        <div class="feature-item">
+          <div class="feature-icon">📋</div>
+          <div class="feature-name">Documentación completa</div>
+          <div class="feature-desc">Hoja de servicios, acta de conformidad y factura oficial en cada trabajo realizado.</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">🔧</div>
+          <div class="feature-name">Diagnóstico previo</div>
+          <div class="feature-desc">Evaluación técnica y presupuesto aprobado antes de iniciar cualquier reparación.</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">✅</div>
+          <div class="feature-name">Garantía por escrito</div>
+          <div class="feature-desc">Todos los trabajos tienen plazo de garantía documentado. Defectos cubiertos sin costo adicional.</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">💳</div>
+          <div class="feature-name">Pago electrónico</div>
+          <div class="feature-desc">Transferencia bancaria y tarjeta magnética. Cuenta fiscal BANDEC registrada en la ONAT.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SERVICIOS ── -->
+<section id="servicios">
+  <div class="section-inner">
+    <div class="section-label">Catálogo de servicios</div>
+    <h2 class="section-title reveal">Lo que hacemos</h2>
+    <p class="servicios-intro reveal">
+      Más de 198 servicios especializados en reparación, mantenimiento y recarga. Precios establecidos conforme a la Resolución 271/2024 del Ministerio de Finanzas y Precios.
+    </p>
+    <div class="servicios-grid">
+
+      <div class="servicio-card reveal">
+        <div class="servicio-num">01</div>
+        <div class="servicio-icon">🖨️</div>
+        <div class="servicio-name">Tóner Láser</div>
+        <div class="servicio-desc">Relleno, reparación mayor y menor de cartuchos tóner. Mantenimiento preventivo sin costo de mano de obra.</div>
+        <div class="servicio-ejemplos">
+          <span class="tag">HP</span><span class="tag">Canon</span><span class="tag">Epson</span><span class="tag">Relleno</span><span class="tag">Reparación</span>
+        </div>
+      </div>
+
+      <div class="servicio-card reveal">
+        <div class="servicio-num">02</div>
+        <div class="servicio-icon">⚙️</div>
+        <div class="servicio-name">Impresoras</div>
+        <div class="servicio-desc">Reparación de mecanismos, placas madre, unidades fusoras, motores, sensores y fuentes de alimentación. Láser, tinta y matricial.</div>
+        <div class="servicio-ejemplos">
+          <span class="tag">Láser</span><span class="tag">Tinta</span><span class="tag">Matricial</span><span class="tag">Fuser</span>
+        </div>
+      </div>
+
+      <div class="servicio-card reveal">
+        <div class="servicio-num">03</div>
+        <div class="servicio-icon">💻</div>
+        <div class="servicio-name">Computadoras</div>
+        <div class="servicio-desc">Reparación de PC de escritorio, laptops, discos duros, fuentes, placas madre y periféricos. Todas las gamas.</div>
+        <div class="servicio-ejemplos">
+          <span class="tag">PC</span><span class="tag">Laptop</span><span class="tag">Disco Duro</span><span class="tag">RAM</span>
+        </div>
+      </div>
+
+      <div class="servicio-card reveal">
+        <div class="servicio-num">04</div>
+        <div class="servicio-icon">🖥️</div>
+        <div class="servicio-name">Monitores</div>
+        <div class="servicio-desc">Reparación menor y mayor de monitores de todas las gamas. Mantenimiento preventivo con diagnóstico incluido.</div>
+        <div class="servicio-ejemplos">
+          <span class="tag">LCD</span><span class="tag">LED</span><span class="tag">Gama baja</span><span class="tag">Gama alta</span>
+        </div>
+      </div>
+
+      <div class="servicio-card reveal">
+        <div class="servicio-num">05</div>
+        <div class="servicio-icon">🔌</div>
+        <div class="servicio-name">UPS y Redes</div>
+        <div class="servicio-desc">Reparación de UPS (backup), conmutadores de red y media converters. Mantenimiento de infraestructura de oficina.</div>
+        <div class="servicio-ejemplos">
+          <span class="tag">UPS</span><span class="tag">Switch</span><span class="tag">Media Converter</span>
+        </div>
+      </div>
+
+      <div class="servicio-card reveal">
+        <div class="servicio-num">06</div>
+        <div class="servicio-icon">🛠️</div>
+        <div class="servicio-name">Mantenimiento</div>
+        <div class="servicio-desc">Mantenimiento preventivo parcial y total para todos los equipos. Limpieza, lubricación y diagnóstico completo. Garantía extendida.</div>
+        <div class="servicio-ejemplos">
+          <span class="tag">Preventivo</span><span class="tag">Correctivo</span><span class="tag">Garantía</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── PRECIOS DESTACADOS ── -->
+<section id="precios">
+  <div class="section-inner">
+    <div class="section-label">Precios de referencia</div>
+    <h2 class="section-title reveal">Tarifas transparentes</h2>
+    <div class="precios-grid">
+
+      <div class="precio-item reveal">
+        <div class="precio-categoria">Tóner</div>
+        <div class="precio-servicio">Relleno tóner HP 12A / Canon 703</div>
+        <div class="precio-valor">2,900</div>
+        <span class="precio-moneda">CUP · Garantía 2 días</span>
+      </div>
+
+      <div class="precio-item reveal">
+        <div class="precio-categoria">Tóner</div>
+        <div class="precio-servicio">Relleno tóner HP 26A, 55A, 80A</div>
+        <div class="precio-valor">3,100</div>
+        <span class="precio-moneda">CUP · Garantía 2 días</span>
+      </div>
+
+      <div class="precio-item reveal">
+        <div class="precio-categoria">Impresora Láser</div>
+        <div class="precio-servicio">Mantenimiento total (formato pequeño)</div>
+        <div class="precio-valor">3,000</div>
+        <span class="precio-moneda">CUP · Garantía 30 días</span>
+      </div>
+
+      <div class="precio-item reveal">
+        <div class="precio-categoria">Impresora Tinta</div>
+        <div class="precio-servicio">Mantenimiento total impresora de tinta</div>
+        <div class="precio-valor">4,500</div>
+        <span class="precio-moneda">CUP · Garantía 30 días</span>
+      </div>
+
+      <div class="precio-item reveal">
+        <div class="precio-categoria">PC</div>
+        <div class="precio-servicio">Mantenimiento total a PC</div>
+        <div class="precio-valor">5,250</div>
+        <span class="precio-moneda">CUP · Garantía 30 días</span>
+      </div>
+
+      <div class="precio-item reveal">
+        <div class="precio-categoria">Laptop</div>
+        <div class="precio-servicio">Mantenimiento total a laptop</div>
+        <div class="precio-valor">5,250</div>
+        <span class="precio-moneda">CUP · Garantía 30 días</span>
+      </div>
+
+      <div class="precio-item reveal">
+        <div class="precio-categoria">Monitor</div>
+        <div class="precio-servicio">Reparación menor monitor gama baja</div>
+        <div class="precio-valor">2,250</div>
+        <span class="precio-moneda">CUP · Garantía 30 días</span>
+      </div>
+
+      <div class="precio-item reveal">
+        <div class="precio-categoria">UPS</div>
+        <div class="precio-servicio">Mantenimiento total UPS (backup)</div>
+        <div class="precio-valor">1,875</div>
+        <span class="precio-moneda">CUP · Garantía 30 días</span>
+      </div>
+
+    </div>
+    <div class="precios-nota reveal">
+      Precios en Pesos Cubanos (CUP) vigentes conforme a la Resolución 271/2024 del Ministerio de Finanzas y Precios. Los servicios marcados como "Prev. Concil." se determinan por conciliación previa según complejidad. Solicite presupuesto sin compromiso.
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACTO ── -->
+<section id="contacto">
+  <div class="section-inner">
+    <div class="section-label">Contacto</div>
+    <h2 class="section-title reveal">Hablemos</h2>
+    <div class="contacto-grid">
+      <div class="contacto-info">
+        <p class="contacto-intro reveal">
+          Solicite diagnóstico previo sin costo. Atiendo en mi domicilio taller ubicado en Mariana de la Torre, Santiago de Cuba. Para entidades estatales y empresas, emito factura oficial y contrato de servicios.
+        </p>
+        <div class="contacto-items">
+          <div class="contacto-item reveal">
+            <div class="contacto-item-icon">📱</div>
+            <div class="contacto-item-text">
+              <div class="contacto-item-label">Teléfono móvil</div>
+              <div class="contacto-item-val">+53 5557589</div>
+              <div class="contacto-item-sub">WhatsApp disponible</div>
+            </div>
+          </div>
+          <div class="contacto-item reveal">
+            <div class="contacto-item-icon">📍</div>
+            <div class="contacto-item-text">
+              <div class="contacto-item-label">Dirección del taller</div>
+              <div class="contacto-item-val">Calle Fuerte No. 51</div>
+              <div class="contacto-item-sub">Entre Calle 9 y Calle 11, Mariana de la Torre, Santiago de Cuba</div>
+            </div>
+          </div>
+          <div class="contacto-item reveal">
+            <div class="contacto-item-icon">🏦</div>
+            <div class="contacto-item-text">
+              <div class="contacto-item-label">Cuenta bancaria fiscal</div>
+              <div class="contacto-item-val">0683070018874810</div>
+              <div class="contacto-item-sub">BANDEC · Sucursal 8301 · Santiago de Cuba</div>
+            </div>
+          </div>
+          <div class="contacto-item reveal">
+            <div class="contacto-item-icon">📄</div>
+            <div class="contacto-item-text">
+              <div class="contacto-item-label">NIT / Autorizo</div>
+              <div class="contacto-item-val">91042547316</div>
+              <div class="contacto-item-sub">No. Autorizo: 34006137 · TCP autorizado MINCIN</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="horario-head">Horario de atención</div>
+        <div class="horario-grid">
+          <div class="horario-item active">
+            <span class="horario-dia">Lunes — Viernes</span>
+            <span class="horario-hrs">8:00 — 17:00</span>
+          </div>
+          <div class="horario-item active">
+            <span class="horario-dia">Sábado</span>
+            <span class="horario-hrs">8:00 — 13:00</span>
+          </div>
+          <div class="horario-item">
+            <span class="horario-dia" style="color:var(--grey3)">Domingo</span>
+            <span class="horario-hrs" style="color:var(--grey3)">Cerrado</span>
+          </div>
+        </div>
+        <div style="margin-top:2rem; padding:1.5rem; border:1px solid var(--line);">
+          <div style="font-size:0.7rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--grey3);margin-bottom:1rem;">Aceptamos pagos</div>
+          <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+            <span class="tag" style="padding:0.5rem 1rem;font-size:0.72rem;">💳 Tarjeta magnética</span>
+            <span class="tag" style="padding:0.5rem 1rem;font-size:0.72rem;">🏦 Transferencia</span>
+            <span class="tag" style="padding:0.5rem 1rem;font-size:0.72rem;">📱 EnZona</span>
+          </div>
+          <div style="margin-top:1.5rem;font-size:0.78rem;color:var(--grey3);line-height:1.7;">
+            Para servicios a entidades estatales y empresas: emisión de contrato de servicios, factura oficial Modelo SC-2-12 y acta de conformidad según normativa vigente.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <svg viewBox="0 0 680 600" fill="none">
+        <use href="#logo-af" color="#f5f3ee"/>
+      </svg>
+      <span class="footer-brand-text">ARLETYS FABRÉ — REPARACIONES PROFESIONALES</span>
+    </div>
+    <div class="footer-legal">
+      TCP autorizado · NIT: 91042547316 · Autorizo No. 34006137<br/>
+      Ministerio del Comercio Interior · Santiago de Cuba · 2026<br/>
+      Decreto-Ley 90/2024 — Gaceta Oficial No. 78 Ordinaria
+    </div>
+  </div>
+</footer>
+
+<script>
+// Reveal on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 60);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Nav active state
+window.addEventListener('scroll', () => {
+  const nav = document.querySelector('nav');
+  nav.style.background = window.scrollY > 50
+    ? 'rgba(10,10,10,0.98)'
+    : 'rgba(10,10,10,0.92)';
+});
+</script>
+</body>
+</html>
